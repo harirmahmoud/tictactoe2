@@ -1,6 +1,14 @@
 import React from 'react'
 
 export default function MiniSquare({val,choose}) {
+    const stl1={
+        fontSize:"30px",
+        color:"red",
+    }
+    const stl2={
+        fontSize:"30px",
+        color:"blue",
+    }
   return (
     <div onClick={choose} style={{
         width:"70px",
@@ -15,7 +23,7 @@ export default function MiniSquare({val,choose}) {
         justifyContent:"center",
         alignItems:"center",
         }}>
-        <h1 style={{fontSize:"30px"}}>{val}</h1>
+        <h1 style={val==="X"?stl1:stl2}>{val}</h1>
         </div>
   )
 }
