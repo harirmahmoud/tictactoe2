@@ -23,7 +23,7 @@ export default function MiniSquare({val,choose}) {
         justifyContent:"center",
         alignItems:"center",
         }}>
-        <h1 style={val==="X"?stl1:stl2}>{val}</h1>
+        <h1 style={val==="X"?stl2:stl1}>{val}</h1>
         </div>
   )
 }

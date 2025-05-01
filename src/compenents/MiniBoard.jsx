@@ -65,14 +65,14 @@ export default function MiniBoard({val,setVal,setIndex,setCheck,check,setVall,dr
     }
     if(check){
         return(
-            <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                <h1 style={{color:"red"}}> {val2} </h1>
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center",backgroundColor:val2==="X"?"cyan":"pink",width:"300px",height:"300px",borderRadius:"5px"}}>
+                <h1 style={{color:val2==="X"?"blue":"red"}}> {val2} </h1>
             </div>
         )
     }
     if(draw){
         return(
-            <div style={{background:"gray"}}>
+            <div style={{background:"gray",width:"300px",height:"300px",borderRadius:"5px"}}>
                 
             </div>
         )
