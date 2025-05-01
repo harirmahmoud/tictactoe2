@@ -40,7 +40,7 @@ export default function Square({ val, setVal, setIndex, stl, id, board, setboard
   const style2 = {
     width: "300px",
     height: "300px",
-    border: "2px solid blue",
+    border:val==="X"? "2px solid blue":"2px solid red",
     borderRadius: "5px",
     margin: "10px",
     display: "flex",
