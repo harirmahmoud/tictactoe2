@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Square from './Square'
 import { Toaster,toast  } from "mui-sonner";
+import './style.css'
 
 export default function Board() {
     const [val, setVal] = React.useState("X")
@@ -18,8 +19,10 @@ export default function Board() {
     })
     React.useEffect(() => {
         if (checkWin()) {
-           toast.success(val==="X"?"O":"X" + " Win !!");
+           toast.success((val==="X"?"O":"X" )+ " Win !!");
            console.log(val)
+           setTimeout(() => {
+           setWin(false)}, 2000);
            
         }
     }
@@ -27,7 +30,7 @@ export default function Board() {
     const [draw, setDraw] = React.useState(false)
     React.useEffect(() => {
         if (board.every((square) => square !== "")) {
-            setDraw(true)
+          
             toast.info('Draw !!');
             setIndex("")
                 setboard([
@@ -74,7 +77,7 @@ export default function Board() {
     }
    
   return (
-    <div style={{}}>
+    <div className='board' style={{}}>
           <Toaster position='top-center'/>
         <h1 style={{display:"flex",justifyContent:"center"}}>Tic Tac Toe</h1>
         <h1 style={{display:"flex",justifyContent:"center"}}>X  {point.X+" - "+point.O}  O</h1>
@@ -82,20 +85,20 @@ export default function Board() {
       
      <div>
       <div style={{display:"flex",justifyContent:"center"}} className="row">
-         <Square id={0} val={val} setVal={setVal} setIndex={setIndex} stl={(index===0 || index==="" || board[index]!=="")  ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}  />
-         <Square id={1} val={val} setVal={setVal} setIndex={setIndex} stl={(index===1 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false} />
-         <Square id={2} val={val} setVal={setVal} setIndex={setIndex} stl={(index===2 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}   />
+         <Square id={0} val={val} setVal={setVal} setIndex={setIndex} stl={(index===0 || index==="" || board[index]!=="")  ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}  />
+         <Square id={1} val={val} setVal={setVal} setIndex={setIndex} stl={(index===1 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false} />
+         <Square id={2} val={val} setVal={setVal} setIndex={setIndex} stl={(index===2 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}   />
       </div>
      </div>
      <div style={{display:"flex",justifyContent:"center"}} className="row">
-         <Square id={3} val={val} setVal={setVal} setIndex={setIndex} stl={(index===3 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}  />
-         <Square id={4} val={val} setVal={setVal} setIndex={setIndex} stl={(index===4 || index==="" || board[index]!=="")?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}  />
-         <Square id={5} val={val} setVal={setVal} setIndex={setIndex} stl={(index===5 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}  />
+         <Square id={3} val={val} setVal={setVal} setIndex={setIndex} stl={(index===3 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}  />
+         <Square id={4} val={val} setVal={setVal} setIndex={setIndex} stl={(index===4 || index==="" || board[index]!=="")?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}  />
+         <Square id={5} val={val} setVal={setVal} setIndex={setIndex} stl={(index===5 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}  />
       </div>
       <div style={{display:"flex",justifyContent:"center"}} className="row">
-         <Square id={6} val={val} setVal={setVal} setIndex={setIndex} stl={(index===6 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false} />
-         <Square id={7} val={val} setVal={setVal} setIndex={setIndex} stl={(index===7 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false} />
-         <Square id={8} val={val} setVal={setVal} setIndex={setIndex} stl={(index===8 || index==="" || board[index]!=="") ?true:false } board={board} setboard={setboard} check1={(win||draw)?true:false}  />
+         <Square id={6} val={val} setVal={setVal} setIndex={setIndex} stl={(index===6 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false} />
+         <Square id={7} val={val} setVal={setVal} setIndex={setIndex} stl={(index===7 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false} />
+         <Square id={8} val={val} setVal={setVal} setIndex={setIndex} stl={(index===8 || index==="" || board[index]!=="") ?true:false } checkwin={setWin} checkdraw={setDraw} board={board} setboard={setboard} check1={(win||draw)?true:false}  />
       </div>
   
   </div>

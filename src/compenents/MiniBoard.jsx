@@ -1,7 +1,7 @@
 import React from 'react'
 import MiniSquare from './MiniSquare'
 
-export default function MiniBoard({val,setVal,setIndex,setCheck,check,setVall,draw,setDraw,check1}) {
+export default function MiniBoard({val,setVal,setIndex,setCheck,check,setVall,draw,setDraw,check1,checkwin,chreckdraw}) {
     const [val2,setVal2]=React.useState("")
     const [mboard,setMboard]=React.useState([
         "", "", "",
@@ -27,6 +27,9 @@ export default function MiniBoard({val,setVal,setIndex,setCheck,check,setVall,dr
             ])
         setCheck(false)
         setDraw(false)
+        
+       
+        console.log({check1,draw})
         }},[val]);
     React.useEffect(() => {
         if (checkWin()) {
@@ -78,8 +81,8 @@ export default function MiniBoard({val,setVal,setIndex,setCheck,check,setVall,dr
         )
     }
   return (
-   <div>
-   <div style={{ display: 'flex', justifyContent: 'center' }} className="row">
+   <div className="mboard">
+   <div  style={{ display: 'flex', justifyContent: 'center' }} className="row">
              <MiniSquare val={mboard[0]} choose={()=>handleSquareClick(0)}  />
              <MiniSquare val={mboard[1]} choose={()=>handleSquareClick(1)}  />
              <MiniSquare val={mboard[2]} choose={()=>handleSquareClick(2)}  />

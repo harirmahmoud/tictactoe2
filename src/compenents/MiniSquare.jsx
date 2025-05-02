@@ -10,7 +10,7 @@ export default function MiniSquare({val,choose}) {
         color:"blue",
     }
   return (
-    <div onClick={choose} style={{
+    <div className='msquare' onClick={choose} style={{
         width:"70px",
         height:"70px",
         border:"1px solid black",

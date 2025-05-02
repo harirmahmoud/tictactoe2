@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import MiniBoard from './MiniBoard';
 
-export default function Square({ val, setVal, setIndex, stl, id, board, setboard ,check1}) {
+
+export default function Square({ val, setVal, setIndex, stl, id, board, setboard ,check1,checkwin,checkdraw}) {
   const [check, setCheck] = useState(false);
   const [draw,setDraw] = useState(false);
   const [val2, setVal2] = useState("");
@@ -32,7 +33,7 @@ export default function Square({ val, setVal, setIndex, stl, id, board, setboard
     margin: "10px",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+  
     pointerEvents: 'none',
     opacity: 1,
   };
@@ -48,7 +49,7 @@ export default function Square({ val, setVal, setIndex, stl, id, board, setboard
   };
 
   return (
-    <div style={stl ? style2 : style1}>
+    <div className='square' style={stl ? style2 : style1}>
       <MiniBoard
         setIndex={setIndex}
         val={val}
@@ -59,6 +60,8 @@ export default function Square({ val, setVal, setIndex, stl, id, board, setboard
         draw={draw}
         setDraw={setDraw}
         check1={check1}
+        checkwin={checkwin}
+        checkdraw={checkdraw}
       />
     </div>
   );
