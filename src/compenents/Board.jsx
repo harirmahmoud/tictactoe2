@@ -30,7 +30,7 @@ export default function Board() {
     const [draw, setDraw] = React.useState(false)
     React.useEffect(() => {
         if (board.every((square) => square !== "")) {
-          
+          setDraw(true)
             toast.info('Draw !!');
             setIndex("")
                 setboard([
@@ -38,6 +38,10 @@ export default function Board() {
                     "", "", "",
                     "", "", ""
                 ])
+                setTimeout(() => {
+                    setDraw(false)
+                }
+                , 2000);
         }
     }
         , [board]);
